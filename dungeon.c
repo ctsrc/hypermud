@@ -178,12 +178,14 @@ void cave (bool first_cave)
     {
       int ent;
 
-      // 25% chance of creating a '$' entity. Presumably means treasure.
+      // 25% chance of creating a '$' entity. Means gold or gems (my guess was treasure).
       if (rangedrand(0, 4) == 0)
       {
         ent = '$';
       }
-      // 75% chance of an ASCII character between 'A' and '~'. I imagine monsters etc.
+      // 75% chance of an ASCII character between 'A' and '~'.
+      // These symbols represent entities ranging from angelic beings to light sources,
+      // tools, chests, junk, sticks, skeletons etc.
       else
       {
         ent = rangedrand(65, 127);
