@@ -90,8 +90,8 @@ void cave(bool first_cave)
     }
   }
 
-  int d = 0;
-  int e, f;
+  int num_door_positions_considered = 0;
+  int door_x, door_y;
 
   if (!first_cave)
   {
@@ -112,26 +112,26 @@ void cave(bool first_cave)
         {
           // ...then the number of possible door placements
           // we've seen total is increased by one...
-          d++;
+          num_door_positions_considered++;
 
           // ...and we have a 1 in d chance of using the current
           // x, y position as the placement for the door of this
           // cave. The iterations that follow have a decreasing
           // but still existing possibility of updating the
           // position where we eventually place the door.
-          if (rangedrand(0, d) == 0)
+          if (rangedrand(0, num_door_positions_considered) == 0)
           {
-            e = x;
-            f = y;
+            door_x = x;
+            door_y = y;
           }
         }
       }
     }
 
-    // If we have no doors, either because of no neighbouring caves
+    // If we have no door, either because of no neighbouring caves
     // or because of very unlikely bad luck with regards to random
     // numbers then we do not create this cave.
-    if (d == 0)
+    if (num_door_positions_considered == 0)
     {
       return;
     }
@@ -152,12 +152,12 @@ void cave(bool first_cave)
   // XXX: d > 0 is always true for non-first caves at this point,
   //      because in the door placement above we abort if we don't
   //      have any doors to place.
-  if (d > 0)
+  if (num_door_positions_considered > 0)
   {
     // 50/50 chance of the door being either "'" or '+'.
     // Probably plus means a locked door, and single quote
     // means unlocked, or the other way around.
-    map[f][e] = rand() % 2 ? '\'' : '+';
+    map[door_y][door_x] = rand() % 2 ? '\'' : '+';
   }
 
   if (first_cave)
