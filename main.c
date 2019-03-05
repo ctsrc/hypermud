@@ -148,18 +148,6 @@ void cave(bool first_cave)
     }
   }
 
-  // Place door if we have a door to place.
-  // XXX: d > 0 is always true for non-first caves at this point,
-  //      because in the door placement above we abort if we don't
-  //      have any doors to place.
-  if (num_door_positions_considered > 0)
-  {
-    // 50/50 chance of the door being either "'" or '+'.
-    // Probably plus means a locked door, and single quote
-    // means unlocked, or the other way around.
-    map[door_y][door_x] = rand() % 2 ? '\'' : '+';
-  }
-
   if (first_cave)
   {
     // Player starts in first cave. There is nothing else in this cave.
@@ -171,7 +159,14 @@ void cave(bool first_cave)
   }
   else
   {
-    // Other caves contain between one and six entities.
+    // Other caves have one door and contain between one and six entities.
+    
+    // Place door. 50/50 chance of the door being either "'" or '+'.
+    // Probably plus means a locked door, and single quote means
+    // unlocked, or the other way around.
+    map[door_y][door_x] = rand() % 2 ? '\'' : '+';
+    
+    // Generate and place entities.
     for (int j = 0; j < rangedrand(1, 7); j++)
     {
       int ent;
