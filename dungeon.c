@@ -21,14 +21,14 @@ int map[40][80];
 /*
  * Return a random integer in range [lower_bound_incl, upper_bound_excl).
  */
-int rangedrand(int lower_bound_incl, int upper_bound_excl)
+int rangedrand (int lower_bound_incl, int upper_bound_excl)
 {
   return lower_bound_incl + (rand() % (upper_bound_excl - lower_bound_incl));
 }
 
-void cave(bool);
+void cave (bool);
 
-int main(int argc, const char *argv[])
+int main (int argc, const char *argv[])
 {
   // Set seed for pseudo-random generator.
   srand((int) time(NULL));
@@ -67,7 +67,7 @@ int main(int argc, const char *argv[])
   return 0;
 }
 
-void cave(bool first_cave)
+void cave (bool first_cave)
 {
   // Dimensions of cave are w * h.
   int w = rangedrand(5, 15);
