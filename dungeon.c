@@ -174,10 +174,10 @@ void cave (bool first_cave)
   {
     // Player starts in first cave. There is nothing else in this cave.
     //
-    // XXX: Upper bound exclusive is w + x0 here, so player will never
-    //      land on the rightmost column of the floor, which I think is
-    //      probably unintended.
-    map[rangedrand(y0 + 1, (y0 + 1) + h)][rangedrand((x0 + 1), (x0 + 1) + w)] = '@';
+    // XXX: Upper bound exclusive are y1 - 1 and x1 - 1 here, so player will never
+    //      land on the rightmost column of the floor nor on the bottom-most row
+    //      of the floor, which I think is probably unintended.
+    map[rangedrand(y0 + 1, y1 - 1)][rangedrand(x0 + 1, x1 - 1)] = '@';
   }
   else
   {
@@ -212,7 +212,8 @@ void cave (bool first_cave)
         ent = rangedrand(65, 127);
       }
 
-      map[rangedrand(y0 + 1, (y0 + 1) + h)][rangedrand(x0 + 1, (x0 + 1) + w)] = ent;
+      // XXX: Same as with the player wrt positioning.
+      map[rangedrand(y0 + 1, y1 - 1)][rangedrand(x0 + 1, x1 - 1)] = ent;
     }
   }
 }
