@@ -1,4 +1,4 @@
 # cmake_minimum_required(VERSION <specify CMake version here>)
 project(dungeon)
 
-add_executable(dungeon main.c)
+add_executable(dungeon dungeon.c)
