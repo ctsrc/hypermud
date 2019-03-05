@@ -1,4 +1,4 @@
-# Random dungeon generator
+# ASCII Random Dungeon Generator
 
 Random dungeon generator from https://news.ycombinator.com/item?id=19309378, reformatted and deobfuscated.
 

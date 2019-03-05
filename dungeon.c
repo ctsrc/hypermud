@@ -1,5 +1,5 @@
 /*
- * ASCII random dungeon generator.
+ * ASCII Random Dungeon Generator
  *
  * Robert Nystrom
  * @munificentbob
