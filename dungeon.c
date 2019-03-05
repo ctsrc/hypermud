@@ -164,8 +164,8 @@ void cave (bool first_cave)
 
     // Place door. 50/50 chance of the door being either "'" or '+'.
     //
-    // http://angband.oook.cz/stuff/manual.txt, as pointed out by HN user homarp,
-    // gives:
+    // http://angband.oook.cz/stuff/manual.txt,
+    // as pointed out by HN user homarp, gives:
     //
     //   ' An open/broken door
     //   + A closed door
