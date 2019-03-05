@@ -4,11 +4,20 @@ Random dungeon generator from https://news.ycombinator.com/item?id=19309378, deo
 
 ## Building with Make
 
+Create a binary that produces deterministic dungeons (for testing / development).
+
 ```
+CFLAGS=-DDETERMINISTIC_DUNGEONS make dungeon
+```
+
+Create a binary that produces random dungeons.
+
+```
+touch dungeons.c
 make dungeon
 ```
 
-Then you can run the compiled executable
+Run the compiled executable
 
 ```
 ./dungeon
@@ -23,7 +32,7 @@ cmake ..
 make
 ```
 
-Then you can run the compiled executable
+Run the compiled executable
 
 ```
 ./dungeon

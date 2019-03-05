@@ -31,27 +31,31 @@ void cave (bool);
 int main (int argc, const char *argv[])
 {
   // Set seed for pseudo-random generator.
+#ifndef DETERMINISTIC_DUNGEONS
   srand((int) time(NULL));
+#else
+  srand(0);
+#endif
 
   // Initialize map to consist purely of blank spaces.
-  for (int y = 0; y < H; y++)
+  for (int y = 0 ; y < H ; y++)
   {
-    for (int x = 0; x < W; x++)
+    for (int x = 0 ; x < W ; x++)
     {
       map[y][x] = ' ';
     }
   }
 
   // Generate dungeon.
-  for (int j = 0; j < 1000; j++)
+  for (int j = 0 ; j < 1000 ; j++)
   {
     cave(j == 0);
   }
 
   // Print generated dungeon.
-  for (int y = 0; y < H; y++)
+  for (int y = 0 ; y < H ; y++)
   {
-    for (int x = 0; x < W; x++)
+    for (int x = 0 ; x < W ; x++)
     {
       int c = map[y][x];
 
@@ -69,20 +73,24 @@ int main (int argc, const char *argv[])
 
 void cave (bool first_cave)
 {
-  // Dimensions of cave are w * h.
+  // Dimensions of cave floor are (w + 1) * (h + 1).
   int w = rangedrand(5, 15);
   int h = rangedrand(3, 9);
 
-  // Upper left corner of cave floor is at coord (x, y) = (x0, y0).
+  // Top left corner of cave floor is at coord (x, y) = (x0, y0).
   int x0 = rangedrand(1, W - w - 1);
   int y0 = rangedrand(1, H - h - 1);
+
+  // Bottom right corner of cave floor.
+  int x1 = x0 + w;
+  int y1 = y0 + h;
 
   // If there is a floor present already within
   // the bounds where we were going to create
   // a new cave then do not create a new cave here.
-  for (int y = y0 - 1; y < y0 + h + 2; y++)
+  for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
   {
-    for (int x = x0 - 1; x < x0 + w + 2; x++)
+    for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
     {
       if (map[y][x] == '.')
       {
@@ -99,14 +107,14 @@ void cave (bool first_cave)
     // Look for intersecting walls.
     // XXX: Scans whole cave but only
     //      needs to check along walls.
-    for (int y = y0 - 1; y < y0 + h + 2; y++)
+    for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
     {
-      for (int x = x0 - 1; x < x0 + w + 2; x++)
+      for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
       {
-        int s = x < x0 || x > (x0 + w);
-        int t = y < y0 || y > (y0 + h);
+        int s = x < x0 || x > x1;
+        int t = y < y0 || y > y1;
 
-        // If we are not at a corner (I think),
+        // If we are not at a corner,
         // and we have an existing wall here...
         if (s ^ t && map[y][x] == '#')
         {
@@ -119,6 +127,11 @@ void cave (bool first_cave)
           // cave. The iterations that follow have a decreasing
           // but still existing possibility of updating the
           // position where we eventually place the door.
+          //
+          // Further, note that rangedrand(0, 0) is always 0
+          // as pointed out by Joker-VD on GitHub, so at this
+          // point in the control flow it is guaranteed that
+          // a door will be placed.
           if (rangedrand(0, num_door_positions_considered) == 0)
           {
             door_x = x;
@@ -136,13 +149,13 @@ void cave (bool first_cave)
     }
   }
 
-  // Create floor ('.'), walls ('#') and corners ('!') for this cave.
-  for (int y = y0 - 1; y < y0 + h + 2; y++)
+  // Create corners ('!'), walls ('#') and floor ('.') for this cave.
+  for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
   {
-    for (int x = x0 - 1; x < x0 + w + 2; x++)
+    for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
     {
-      int s = x < x0 || x > x0 + w;
-      int t = y < y0 || y > y0 + h;
+      int s = x < x0 || x > x1;
+      int t = y < y0 || y > y1;
 
       map[y][x] = s && t ? '!' : s ^ t ? '#' : '.';
     }
@@ -173,7 +186,7 @@ void cave (bool first_cave)
     map[door_y][door_x] = rand() % 2 ? '\'' : '+';
 
     // Generate and place entities.
-    for (int j = 0; j < rangedrand(1, 7); j++)
+    for (int j = 0 ; j < rangedrand(1, 7) ; j++)
     {
       int ent;
 
