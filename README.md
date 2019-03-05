@@ -1,6 +1,6 @@
 # ASCII Random Dungeon Generator
 
-Random dungeon generator from https://news.ycombinator.com/item?id=19309378, reformatted and deobfuscated.
+Random dungeon generator from https://news.ycombinator.com/item?id=19309378, deobfuscated, refactored and commented.
 
 ## Building with Make
 
