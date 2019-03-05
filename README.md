@@ -2,6 +2,8 @@
 
 ![Header image](images/header.png)
 
+A Multi-User Dungeon (multiplayer real-time virtual world)
+
 Downloads:
 
 * [64-bit Linux client, v0.0.0](#)
