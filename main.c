@@ -1,9 +1,11 @@
-// ASCII random dungeon generator.
-//
-// Robert Nystrom
-// @munificentbob
-// for Ginny
-// 2008-2019
+/*
+ * ASCII random dungeon generator.
+ *
+ * Robert Nystrom
+ * @munificentbob
+ * for Ginny
+ * 2008-2019
+ */
 
 #include <time.h>
 #include <stdio.h>
@@ -66,11 +68,17 @@ int main(int argc, const char *argv[])
 
 void cave(int s)
 {
+  // Dimensions of cave are w * h
   int w = rangedrand(5, 15);
   int h = rangedrand(3, 9);
+
+  // Upper left corner of cave is at coord (x, y) = (t, u)
   int t = rangedrand(1, W - w - 1);
   int u = rangedrand(1, H - h - 1);
 
+  // If there is a floor present already within
+  // the bounds where we were going to create
+  // a new cave then do not create a new cave here
   for (int y = u - 1; y < u + h + 2; y++)
   {
     for (int x = t - 1; x < t + w + 2; x++)
