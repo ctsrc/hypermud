@@ -2,13 +2,10 @@
 
 Random dungeon generator from https://news.ycombinator.com/item?id=19309378, reformatted and deobfuscated.
 
-## Building with CMake
+## Building with Make
 
 ```
-mkdir cmake-build-debug
-cd !$
-cmake ..
-make
+make dungeon
 ```
 
 Then you can run the compiled executable
@@ -17,10 +14,13 @@ Then you can run the compiled executable
 ./dungeon
 ```
 
-## Building with Make
+## Building with CMake
 
 ```
-make dungeon
+mkdir cmake-build-debug
+cd !$
+cmake ..
+make
 ```
 
 Then you can run the compiled executable
