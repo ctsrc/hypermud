@@ -72,16 +72,16 @@ void cave(int s)
   int w = rangedrand(5, 15);
   int h = rangedrand(3, 9);
 
-  // Upper left corner of cave is at coord (x, y) = (t, u)
-  int t = rangedrand(1, W - w - 1);
-  int u = rangedrand(1, H - h - 1);
+  // Upper left corner of cave is at coord (x, y) = (u, v)
+  int u = rangedrand(1, W - w - 1);
+  int v = rangedrand(1, H - h - 1);
 
   // If there is a floor present already within
   // the bounds where we were going to create
   // a new cave then do not create a new cave here
-  for (int y = u - 1; y < u + h + 2; y++)
+  for (int y = v - 1; y < v + h + 2; y++)
   {
-    for (int x = t - 1; x < t + w + 2; x++)
+    for (int x = u - 1; x < u + w + 2; x++)
     {
       if (map[y][x] == '.')
       {
@@ -95,12 +95,12 @@ void cave(int s)
 
   if (s == 0)
   {
-    for (int y = u - 1; y < u + h + 2; y++)
+    for (int y = v - 1; y < v + h + 2; y++)
     {
-      for (int x = t - 1; x < t + w + 2; x++)
+      for (int x = u - 1; x < u + w + 2; x++)
       {
-        int s = x < t || x > (t + w);
-        int t = y < u || y > (u + h);
+        int s = x < u || x > (u + w);
+        int t = y < v || y > (v + h);
 
         if (s ^ t && map[y][x] == '#')
         {
@@ -121,12 +121,12 @@ void cave(int s)
     }
   }
 
-  for (int y = u - 1; y < u + h + 2; y++)
+  for (int y = v - 1; y < v + h + 2; y++)
   {
-    for (int x = t - 1; x < t + w + 2; x++)
+    for (int x = u - 1; x < u + w + 2; x++)
     {
-      int s = x < t || x > t + w;
-      int t = y < u || y > u + h;
+      int s = x < u || x > u + w;
+      int t = y < v || y > v + h;
 
       map[y][x] = s && t ? '!' : s ^ t ? '#' : '.';
     }
@@ -139,6 +139,6 @@ void cave(int s)
 
   for (int j = 0; j < (s ? 1 : rangedrand(1, 7)); j++)
   {
-    map[rangedrand(0, h) + u][rangedrand(t, w + t)] = s ? '@' : rangedrand(0, 4) == 0 ? '$' : rangedrand(65, 127);
+    map[rangedrand(0, h) + v][rangedrand(u, w + u)] = s ? '@' : rangedrand(0, 4) == 0 ? '$' : rangedrand(65, 127);
   }
 }
