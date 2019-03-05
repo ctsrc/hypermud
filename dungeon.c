@@ -30,10 +30,10 @@ void cave(bool);
 
 int main(int argc, const char *argv[])
 {
-  // Set seed for pseudo-random generator
+  // Set seed for pseudo-random generator.
   srand((int) time(NULL));
 
-  // Initialize map to consist purely of blank spaces
+  // Initialize map to consist purely of blank spaces.
   for (int y = 0; y < H; y++)
   {
     for (int x = 0; x < W; x++)
@@ -42,13 +42,13 @@ int main(int argc, const char *argv[])
     }
   }
 
-  // Generate dungeon
+  // Generate dungeon.
   for (int j = 0; j < 1000; j++)
   {
     cave(j == 0);
   }
 
-  // Print generated dungeon
+  // Print generated dungeon.
   for (int y = 0; y < H; y++)
   {
     for (int x = 0; x < W; x++)
@@ -69,17 +69,17 @@ int main(int argc, const char *argv[])
 
 void cave(bool first_cave)
 {
-  // Dimensions of cave are w * h
+  // Dimensions of cave are w * h.
   int w = rangedrand(5, 15);
   int h = rangedrand(3, 9);
 
-  // Upper left corner of cave floor is at coord (x, y) = (x0, y0)
+  // Upper left corner of cave floor is at coord (x, y) = (x0, y0).
   int x0 = rangedrand(1, W - w - 1);
   int y0 = rangedrand(1, H - h - 1);
 
   // If there is a floor present already within
   // the bounds where we were going to create
-  // a new cave then do not create a new cave here
+  // a new cave then do not create a new cave here.
   for (int y = y0 - 1; y < y0 + h + 2; y++)
   {
     for (int x = x0 - 1; x < x0 + w + 2; x++)
