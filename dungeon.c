@@ -128,9 +128,8 @@ void cave (bool first_cave)
       }
     }
 
-    // If we have no door, either because of no neighbouring caves
-    // or because of very unlikely bad luck with regards to random
-    // numbers then we do not create this cave.
+    // If we have no door, because of no neighbouring
+    // cave walls, then we do not create this cave.
     if (num_door_positions_considered == 0)
     {
       return;
