@@ -165,6 +165,10 @@ void cave (bool first_cave)
     // Place door. 50/50 chance of the door being either "'" or '+'.
     // Probably plus means a locked door, and single quote means
     // unlocked, or the other way around.
+    //
+    // XXX: BTW this makes it so that sometimes you start in a cave
+    //      where all the of the doors to the neighbouring rooms are locked.
+    //      So in that case I hope you have the key already ;)
     map[door_y][door_x] = rand() % 2 ? '\'' : '+';
 
     // Generate and place entities.
