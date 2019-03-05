@@ -183,8 +183,8 @@ void cave (bool first_cave)
       {
         ent = '$';
       }
-      // 75% chance of an ASCII character between 'A' and '~'.
-      // These symbols represent entities ranging from angelic beings to light sources,
+      // 75% chance of an ASCII character between 'A' and '~'. These symbols
+      // represent entities ranging from angelic beings to light sources,
       // tools, chests, junk, sticks, skeletons etc.
       else
       {
