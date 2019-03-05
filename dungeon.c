@@ -96,7 +96,6 @@ void cave(bool first_cave)
 
   if (!first_cave)
   {
-
     // Look for intersecting walls.
     // XXX: Scans whole cave but only
     //      needs to check along walls.
