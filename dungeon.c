@@ -170,7 +170,7 @@ void cave (bool first_cave)
     //   ' An open/broken door
     //   + A closed door
     //
-    // (My initial guess was that + meant locked and ' meant unlocked.)
+    // (My initial guess was that ' meant unlocked and + meant locked.)
     map[door_y][door_x] = rand() % 2 ? '\'' : '+';
 
     // Generate and place entities.
