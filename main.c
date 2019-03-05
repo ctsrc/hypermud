@@ -25,7 +25,7 @@ int rangedrand(int lower_bound_incl, int upper_bound_excl)
   return lower_bound_incl + (rand() % (upper_bound_excl - lower_bound_incl));
 }
 
-void cave(int);
+void cave(bool);
 
 int main(int argc, const char *argv[])
 {
@@ -66,7 +66,7 @@ int main(int argc, const char *argv[])
   return 0;
 }
 
-void cave(int s)
+void cave(bool first_cave)
 {
   // Dimensions of cave are w * h
   int w = rangedrand(5, 15);
@@ -93,7 +93,7 @@ void cave(int s)
   int d = 0;
   int e, f;
 
-  if (s == 0)
+  if (!first_cave)
   {
     for (int y = v - 1; y < v + h + 2; y++)
     {
@@ -137,8 +137,30 @@ void cave(int s)
     map[f][e] = rand() % 2 ? '\'' : '+';
   }
 
-  for (int j = 0; j < (s ? 1 : rangedrand(1, 7)); j++)
+  // Player starts in first cave. There is nothing else in this cave.
+  if (first_cave)
   {
-    map[rangedrand(0, h) + v][rangedrand(u, w + u)] = s ? '@' : rangedrand(0, 4) == 0 ? '$' : rangedrand(65, 127);
+    map[rangedrand(0, h) + v][rangedrand(u, w + u)] = '@';
+  }
+  else
+  {
+    // Other rooms contain between one and six entities.
+    for (int j = 0; j < rangedrand(1, 7); j++)
+    {
+      int ent;
+
+      // 25% chance of '$'. Presumably means treasure.
+      if (rangedrand(0, 4) == 0)
+      {
+        ent = '$';
+      }
+      // 75% of an ASCII character between 65 and 126. Monsters etc.
+      else
+      {
+        ent = rangedrand(65, 127);
+      }
+
+      map[rangedrand(0, h) + v][rangedrand(u, w + u)] = ent;
+    }
   }
 }
