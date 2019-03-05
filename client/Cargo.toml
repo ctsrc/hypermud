@@ -6,7 +6,7 @@ edition = "2018"
 
 description = "HyperMUD: Mystery. Multi-User Dungeon (multiplayer real-time virtual world). Client."
 
-keywords  = ["MUD", "multiplayer", "real-time", "virtual-world", "rpg", "role-playing-game", "hack-and-slash", "PvP", "player-versus-player", "online-chat", "game", "client"]
+keywords  = ["MUD", "role-playing-game", "hack-and-slash", "player-versus-player", "online-chat"]
 readme    = "../README.md"
 license   = "ISC"
 
