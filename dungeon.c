@@ -86,20 +86,20 @@ void cave (bool first_cave)
   int w = rangedrand(5, 15);
   int h = rangedrand(3, 9);
 
-  // Top left corner of cave floor is at coord (x, y) = (x0, y0).
-  int x0 = rangedrand(1, W - w - 1);
-  int y0 = rangedrand(1, H - h - 1);
+  // Top left cave wall corner is at coord (x, y) = (x0, y0).
+  int x0 = rangedrand(0, ((W - 1) - w) - 1);
+  int y0 = rangedrand(0, ((H - 1) - h) - 1);
 
-  // Bottom right corner of cave floor.
-  int x1 = x0 + w;
-  int y1 = y0 + h;
+  // Bottom right cave wall corner.
+  int x1 = x0 + w + 2;
+  int y1 = y0 + h + 2;
 
   // If there is a floor present already within
   // the bounds where we were going to create
   // a new cave then do not create a new cave here.
-  for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
+  for (int y = y0 ; y <= y1 ; y++)
   {
-    for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
+    for (int x = x0 ; x <= x1 ; x++)
     {
       if (map[y][x] == '.')
       {
@@ -116,12 +116,12 @@ void cave (bool first_cave)
     // Look for intersecting walls.
     // XXX: Scans whole cave but only
     //      needs to check along walls.
-    for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
+    for (int y = y0 ; y <= y1 ; y++)
     {
-      for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
+      for (int x = x0 ; x <= x1 ; x++)
       {
-        int s = x < x0 || x > x1;
-        int t = y < y0 || y > y1;
+        int s = (x == x0 || x == x1);
+        int t = (y == y0 || y == y1);
 
         // If we are not at a corner,
         // and we have an existing wall here...
@@ -159,12 +159,12 @@ void cave (bool first_cave)
   }
 
   // Create corners ('!'), walls ('#') and floor ('.') for this cave.
-  for (int y = y0 - 1 ; y <= y1 + 1 ; y++)
+  for (int y = y0 ; y <= y1 ; y++)
   {
-    for (int x = x0 - 1 ; x <= x1 + 1 ; x++)
+    for (int x = x0 ; x <= x1 ; x++)
     {
-      int s = x < x0 || x > x1;
-      int t = y < y0 || y > y1;
+      int s = (x == x0 || x == x1);
+      int t = (y == y0 || y == y1);
 
       map[y][x] = s && t ? '!' : s ^ t ? '#' : '.';
     }
@@ -177,7 +177,7 @@ void cave (bool first_cave)
     // XXX: Upper bound exclusive is w + x0 here, so player will never
     //      land on the rightmost column of the floor, which I think is
     //      probably unintended.
-    map[rangedrand(0, h) + y0][rangedrand(x0, w + x0)] = '@';
+    map[rangedrand(y0 + 1, (y0 + 1) + h)][rangedrand((x0 + 1), (x0 + 1) + w)] = '@';
   }
   else
   {
@@ -212,7 +212,7 @@ void cave (bool first_cave)
         ent = rangedrand(65, 127);
       }
 
-      map[rangedrand(0, h) + y0][rangedrand(x0, w + x0)] = ent;
+      map[rangedrand(y0 + 1, (y0 + 1) + h)][rangedrand(x0 + 1, (x0 + 1) + w)] = ent;
     }
   }
 }
