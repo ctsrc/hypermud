@@ -117,13 +117,13 @@ connect to the corresponding development server version only.
 Clone this repository and then in the root of the repository, execute:
 
 ```
-cargo build hypermud-client
+cargo build --bin hypermud-client
 ```
 
 To run the client that you just built:
 
 ```
-cargo run hypermud-client -s localhost:3022
+cargo run --bin hypermud-client -- -s localhost:3022
 ```
 
 ## Want to build the server from source?
@@ -165,13 +165,13 @@ development version client only.
 Clone this repository and then in the root of the repository, execute:
 
 ```
-cargo build hypermud-server
+cargo build --bin hypermud-server
 ```
 
 To run the server that you just built:
 
 ```
-cargo run hypermud-server -p 3022
+cargo run --bin hypermud-server -- -p 3022
 ```
 
 ## Copyright notice and license
