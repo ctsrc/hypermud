@@ -1,15 +1,6 @@
-[package]
-name = "hypermud"
-version = "0.0.0"
-authors = ["Erik Nordstrøm <erik@nordstroem.no>"]
-edition = "2018"
-
-[[bin]]
-name = "hypermud-client"
-path = "src/client/bin/main.rs"
-
-[[bin]]
-name = "hypermud-server"
-path = "src/server/bin/main.rs"
-
-[dependencies]
+[workspace]
+members = [
+  "common",
+  "client",
+  "server",
+]
