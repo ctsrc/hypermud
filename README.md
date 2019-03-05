@@ -1,75 +1,182 @@
-# ASCII Random Dungeon Generator
+# HyperMUD: Mystery
 
-Random dungeon generator from https://news.ycombinator.com/item?id=19309378, deobfuscated, refactored and commented.
+![Header image](images/header.png)
 
-## Building with Make
+Downloads:
+
+* [64-bit Linux client, v0.0.0](#)
+* [64-bit Windows client, v0.0.0](#)
+* [64-bit macOS client, v0.0.0](#)
+
+You find yourself in a dungeon.
+
+In your hand you are holding a sword.
+
+You hear strange noises.
+
+You feel hungry.
+
+Better start moving I guess!
+
+Use the wasd or ,aoe keys to walk.
+
+Use spacebar to interact.
+
+## Table of Contents
+
+* [Project status](#project-status)
+* [Running the client](#running-the-client)
+* [News](#news)
+* [Want to run your own server?](#want-to-run-your-own-server)
+* [Want to build the client from source?](#want-to-build-the-client-from-source)
+  - [Building the latest stable release of the client](#building-the-latest-stable-release-of-the-client)
+  - [Building the current development version of the client](#building-the-current-development-version-of-the-client)
+* [Want to build the server from source?](#want-to-build-the-server-from-source)
+  - [Building the latest stable release of the server](#building-the-latest-stable-release-of-the-server)
+  - [Building the current development version of the server](#building-the-current-development-version-of-the-server)
+* [Copyright notice and license](#copyright-notice-and-license)
+
+## Project status
+
+Development has started. No usable server exists yet. No usable client exists yet.
+
+## Running the client
+
+Download the pre-compiled binary for your platform
+([links provided above](#hypermud-mystery)).
+
+Execute the binary to start the client.
+
+The client will prompt you for which server it should connect to.
+The hostname and port field will contain the name of the last
+server you have successfully connected to. If you have never
+connected to any server before then this field will be pre-filled
+with the hostname and port of the official server;
+`mystery.hypermud.com:2022`.
+
+## News
+
+* 2019-03-05: Development started.
+
+## Want to run your own server?
+
+Downloads:
+
+* [64-bit Linux server, v0.0.0](#)
+* [64-bit Windows server, v0.0.0](#)
+* [64-bit macOS server, v0.0.0](#)
+
+Execute the binary to start the server. By default
+the HyperMUD: Mystery server runs on port 2022.
+
+If you want to run it on another port, provide
+`-p` and desired port number as argument to the
+binary.
+
+For example, to run the server on port 9022:
 
 ```
-make dungeon
+./hypermud-server -p 9022
 ```
 
-Run the compiled executable
+## Want to build the client from source?
+
+If you want to build the client from source
+you will need a recent version of the Rust
+toolchain installed.
+
+Get the Rust toolchain from https://rustup.rs/
+
+### Building the latest stable release of the client
+
+Note: The latest stable release of the client will
+always correspond to the latest pre-built binary
+version. So if all you want is to have the latest
+stable release of the client, all you need to do
+is to download [the prebuilt binary for your platform](#hypermud-mystery).
 
 ```
-./dungeon
+cargo install hypermud-client
 ```
 
-## Building with CMake
+If you have your path set up correctly you will then
+be able to run the client that you just built:
 
 ```
-mkdir cmake-build-debug
-cd !$
-cmake ..
-make
+hypermud-client
 ```
 
-Run the compiled executable
+### Building the current development version of the client
+
+Note: The development version of the client is intended for
+development only. It might contain partially implemented features,
+and it might not be able to connect to the stable version of the server.
+In general, only developers should run this version, and they should
+connect to the corresponding development server version only.
+
+Clone this repository and then in the root of the repository, execute:
 
 ```
-./dungeon
+cargo build hypermud-client
 ```
 
-## Sample output
+To run the client that you just built:
 
 ```
-                                                            ############        
-                                                            #.......a..#        
-                                                            #|.........#        
-                                                            #....`.....#        
-      ########################                              #..........#        
-      #.......e...#..........#                              #####'#########     
-      #...........#.$........#     ###############          #.........a...#     
-      #...........#..........#     #..........s..#          #.............#     
-      #...........#..........#     #.....\.......#          #.............#     
-      #...........#..........#     #..$..........#########  #.o....h......#     
-      #...........+..........#     #.............'.......#  #.............#     
-      #...........#..r.......#     #.............#..V....######+###########     
-      #...........#..........#     #....P........#.......+..S...#               
-      ##################+###########..Q..........#.......#....f.#               
-                       #.J...C.....#.............#########......#               
-      ###############  #...........'.............#       #......#               
-      #.............#  #...........###############       #.$....#               
-      #.....u.......#  #...........#        ##############......#               
-      #..Y..........#  #...........#        #............#......#               
-      #.............#  #.....r.....#        #............+$.....#               
-      #.............#  #...........#        #............#......#               
-      #############'#######+######+##########............#####+###########      
-                 #.........$.# #....$.......#............#...............#      
-                 #...........# #.B..........#.........u..#..........$....#      
-                 #...........# #............#............#.........t.....#      
-  #############  #..$....$...# #............#$.........h.#...............#      
-  #.o.........#  #...........# #............#............#$............$.#      
-  #...........#  #...........# #............##############...............#      
-  #...........#  #.....$.....# #............+...S....N.# ###'######+##########  
-  #...........#  #...........# #............#..........#  #....r.##..........#  
-  #.........G.#######+######'################N.........#  #......##...$......#  
-  #...........#.......#   #..............#  #..........#  #...j..##..........#  
-  #...........#.......#   #..............#  #..........#  #......##.....O....#  
-  #........e..'.......#   #..............#  ############  #......##..........#  
-  #...........#....@..#   #..............#                #......##..........#  
-  #############.......#   #....~.........#                #########..........#  
-              #.......#   #Y.............#                        ############  
-              #.......#   #..............#                                      
-              #.......#   #..............#                                      
-              #########   ################                                      
+cargo run hypermud-client -s localhost:3022
 ```
+
+## Want to build the server from source?
+
+If you want to build the server from source
+you will need a recent version of the Rust
+toolchain installed.
+
+Get the Rust toolchain from https://rustup.rs/
+
+### Building the latest stable release of the server
+
+Note: The latest stable release of the server will
+always correspond to the latest pre-built binary
+version. So if all you want is to have the latest
+stable release of the server, all you need to do
+is to download [the prebuilt binary for your platform](#want-to-run-your-own-server).
+
+```
+cargo install hypermud-server
+```
+
+If you have your path set up correctly you will then
+be able to run the server that you just built:
+
+```
+hypermud-server
+```
+
+### Building the current development version of the server
+
+Note: The development version of the server is intended for
+development only. It might contain partially implemented features,
+and stable clients might not be able to connect to the development
+version of the server. In general, only developers should run
+this version, and they should connect to it with the corresponding
+development version client only.
+
+Clone this repository and then in the root of the repository, execute:
+
+```
+cargo build hypermud-server
+```
+
+To run the server that you just built:
+
+```
+cargo run hypermud-server -p 3022
+```
+
+## Copyright notice and license
+
+Copyright (c) Erik Nordstrøm 2019
+
+The *HyperMUD: Mystery* client and server source code and assets are released
+under the terms of the ISC license. See file [LICENSE](LICENSE) for details.
