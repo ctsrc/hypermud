@@ -27,6 +27,7 @@ Use spacebar to interact.
 ## Table of Contents
 
 * [Project status](#project-status)
+* [Features](#features)
 * [Running the client](#running-the-client)
 * [News](#news)
 * [Want to run your own server?](#want-to-run-your-own-server)
@@ -41,6 +42,15 @@ Use spacebar to interact.
 ## Project status
 
 Development has started. No usable server exists yet. No usable client exists yet.
+
+## Features
+
+Eventually the game will feature:
+
+* RPG (role-playing game) elements
+* Hack-and-slash playstyle
+* PvP (player versus player)
+* Online chat
 
 ## Running the client
 
