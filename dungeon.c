@@ -137,6 +137,7 @@ void cave(bool first_cave)
     }
   }
 
+  // Create floor ('.'), walls ('#') and corners ('!').
   for (int y = y0 - 1; y < y0 + h + 2; y++)
   {
     for (int x = x0 - 1; x < x0 + w + 2; x++)
