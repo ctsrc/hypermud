@@ -149,7 +149,7 @@ void cave(bool first_cave)
     {
       int ent;
 
-      // 25% chance of each entity being '$'. Presumably means treasure.
+      // 25% chance of creating a '$' entity. Presumably means treasure.
       if (rangedrand(0, 4) == 0)
       {
         ent = '$';
