@@ -10,6 +10,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 // Number of characters wide and high.
 const int W = 80;
