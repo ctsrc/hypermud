@@ -144,7 +144,7 @@ void cave(bool first_cave)
   }
   else
   {
-    // Other rooms contain between one and six entities.
+    // Other caves contain between one and six entities.
     for (int j = 0; j < rangedrand(1, 7); j++)
     {
       int ent;
