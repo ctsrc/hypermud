@@ -4,4 +4,19 @@ version = "0.0.0"
 authors = ["Erik Nordstrøm <erik@nordstroem.no>"]
 edition = "2018"
 
+description = "HyperMUD: Mystery. Multi-User Dungeon (multiplayer real-time virtual world). Server."
+
+keywords  = ["MUD", "multiplayer", "real-time", "virtual-world", "rpg", "role-playing-game", "hack-and-slash", "PvP", "player-versus-player", "online-chat", "game", "server"]
+readme    = "../README.md"
+license   = "ISC"
+
+repository  = "https://github.com/ctsrc/hypermud"
+homepage    = "https://www.hypermud.com/"
+
+[badges]
+travis-ci                         = { repository = "ctsrc/hypermud" }
+is-it-maintained-issue-resolution = { repository = "ctsrc/hypermud" }
+is-it-maintained-open-issues      = { repository = "ctsrc/hypermud" }
+maintenance                       = { status = "actively-developed" }
+
 [dependencies]
