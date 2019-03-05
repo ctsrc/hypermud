@@ -160,12 +160,12 @@ void cave(bool first_cave)
   else
   {
     // Other caves have one door and contain between one and six entities.
-    
+
     // Place door. 50/50 chance of the door being either "'" or '+'.
     // Probably plus means a locked door, and single quote means
     // unlocked, or the other way around.
     map[door_y][door_x] = rand() % 2 ? '\'' : '+';
-    
+
     // Generate and place entities.
     for (int j = 0; j < rangedrand(1, 7); j++)
     {
@@ -182,7 +182,7 @@ void cave(bool first_cave)
         ent = rangedrand(65, 127);
       }
 
-      map[rangedrand(0, h) + v][rangedrand(u, w + u)] = ent;
+      map[rangedrand(0, h) + y0][rangedrand(x0, w + x0)] = ent;
     }
   }
 }
