@@ -149,12 +149,12 @@ void cave(bool first_cave)
     {
       int ent;
 
-      // 25% chance of '$'. Presumably means treasure.
+      // 25% chance of each entity being '$'. Presumably means treasure.
       if (rangedrand(0, 4) == 0)
       {
         ent = '$';
       }
-      // 75% of an ASCII character between 65 and 126. Monsters etc.
+      // 75% of an ASCII character between 65 and 126. I imagine monsters etc.
       else
       {
         ent = rangedrand(65, 127);
