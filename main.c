@@ -154,7 +154,7 @@ void cave(bool first_cave)
       {
         ent = '$';
       }
-      // 75% of an ASCII character between 'A' and '~'. I imagine monsters etc.
+      // 75% chance of an ASCII character between 'A' and '~'. I imagine monsters etc.
       else
       {
         ent = rangedrand(65, 127);
