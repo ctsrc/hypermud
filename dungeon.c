@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 // Number of characters wide and high.
 const int W = 80;
@@ -31,11 +32,19 @@ void cave (bool);
 int main (int argc, const char *argv[])
 {
   // Set seed for pseudo-random generator.
-#ifndef DETERMINISTIC_DUNGEONS
-  srand((int) time(NULL));
-#else
-  srand(0);
-#endif
+  if (argc == 1)
+  {
+    srand((int) time(NULL));
+  }
+  else if (argc == 2 && strcmp(argv[1], "--deterministic") == 0)
+  {
+    srand(0);
+  }
+  else
+  {
+    fprintf(stderr, "Invalid argument.\n");
+    return EXIT_FAILURE;
+  }
 
   // Initialize map to consist purely of blank spaces.
   for (int y = 0 ; y < H ; y++)
@@ -68,7 +77,7 @@ int main (int argc, const char *argv[])
     }
   }
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 void cave (bool first_cave)
