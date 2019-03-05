@@ -137,9 +137,9 @@ void cave(bool first_cave)
     map[f][e] = rand() % 2 ? '\'' : '+';
   }
 
-  // Player starts in first cave. There is nothing else in this cave.
   if (first_cave)
   {
+    // Player starts in first cave. There is nothing else in this cave.
     map[rangedrand(0, h) + v][rangedrand(u, w + u)] = '@';
   }
   else
