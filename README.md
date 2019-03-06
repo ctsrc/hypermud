@@ -59,6 +59,10 @@ Download the pre-compiled binary for your platform
 
 Execute the binary to start the client.
 
+```
+./hypermud-client
+```
+
 The client will prompt you for which server it should connect to.
 The hostname and port field will contain the name of the last
 server you have successfully connected to. If you have never
@@ -78,12 +82,16 @@ Downloads:
 * [64-bit Windows server, v0.0.0](#)
 * [64-bit macOS server, v0.0.0](#)
 
-Execute the binary to start the server. By default
-the HyperMUD: Mystery server runs on port 2022.
+Execute the binary to start the server.
 
-If you want to run it on another port, provide
-`-p` and desired port number as argument to the
-binary.
+```
+./hypermud-server
+```
+
+By default the *HyperMUD: Mystery* server
+runs on port 2022. If you want to run it on
+another port, provide `-p` and desired
+port number as argument to the binary.
 
 For example, to run the server on port 9022:
 
