@@ -1,12 +1,12 @@
 [[package]]
 name = "hypermud-client"
-version = "0.0.0"
+version = "0.0.1"
 
 [[package]]
 name = "hypermud-common"
-version = "0.0.0"
+version = "0.0.1"
 
 [[package]]
 name = "hypermud-server"
-version = "0.0.0"
+version = "0.0.1"
 
