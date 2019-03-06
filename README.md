@@ -138,7 +138,10 @@ and it might not be able to connect to the stable version of the server.
 In general, only developers should run this version, and they should
 connect to the corresponding development server version only.
 
-Clone this repository and then in the root of the repository, execute:
+So before you read on, you should first
+[build and run the current development version of the server](#building-the-current-development-version-of-the-server).
+
+In the root of this repository, execute:
 
 ```
 cargo build --bin hypermud-client
@@ -201,6 +204,9 @@ To run the server that you just built:
 ```
 cargo run --bin hypermud-server -- -p 3022
 ```
+
+With the current development version of the server running you should then
+[build and run the current development version of the client](#building-the-current-development-version-of-the-client).
 
 ## Copyright notice and license
 
