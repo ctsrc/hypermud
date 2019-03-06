@@ -107,6 +107,10 @@ version. So if all you want is to have the latest
 stable release of the client, all you need to do
 is to download [the prebuilt binary for your platform](#hypermud-mystery).
 
+With that being said, if you still want to build
+the latest stable release of the client from source,
+here's what to do:
+
 ```
 cargo install hypermud-client
 ```
@@ -153,6 +157,10 @@ always correspond to the latest pre-built binary
 version. So if all you want is to have the latest
 stable release of the server, all you need to do
 is to download [the prebuilt binary for your platform](#want-to-run-your-own-server).
+
+With that being said, if you still want to build
+the latest stable release of the server from source,
+here's what to do:
 
 ```
 cargo install hypermud-server
