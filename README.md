@@ -68,7 +68,7 @@ The hostname and port field will contain the name of the last
 server you have successfully connected to. If you have never
 connected to any server before then this field will be pre-filled
 with the hostname and port of the official server;
-`mystery.hypermud.com:2022`.
+`mystery.hypermud-game.com:2022`.
 
 ## News
 

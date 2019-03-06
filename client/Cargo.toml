@@ -11,7 +11,7 @@ readme    = "../README.md"
 license   = "ISC"
 
 repository  = "https://github.com/ctsrc/hypermud"
-homepage    = "https://www.hypermud.com/"
+homepage    = "https://www.hypermud-game.com/"
 
 [badges]
 travis-ci                         = { repository = "ctsrc/hypermud" }
