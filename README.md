@@ -6,9 +6,9 @@ A Multi-User Dungeon (multiplayer real-time virtual world)
 
 Downloads:
 
-* [64-bit Linux client, v0.0.0](#)
-* [64-bit Windows client, v0.0.0](#)
-* [64-bit macOS client, v0.0.0](#)
+* ~~[64-bit Linux client, v0.0.0](#)~~ (not yet available)
+* ~~[64-bit Windows client, v0.0.0](#)~~ (not yet available)
+* ~~[64-bit macOS client, v0.0.0](#)~~ (not yet available)
 
 You find yourself in a dungeon.
 
@@ -78,9 +78,9 @@ with the hostname and port of the official server;
 
 Downloads:
 
-* [64-bit Linux server, v0.0.0](#)
-* [64-bit Windows server, v0.0.0](#)
-* [64-bit macOS server, v0.0.0](#)
+* ~~[64-bit Linux server, v0.0.0](#)~~ (not yet available)
+* ~~[64-bit Windows server, v0.0.0](#)~~ (not yet available)
+* ~~[64-bit macOS server, v0.0.0](#)~~ (not yet available)
 
 Execute the binary to start the server.
 
