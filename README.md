@@ -123,6 +123,10 @@ here's what to do:
 cargo install hypermud-client
 ```
 
+The above command will download the required source file
+release packages from [crates.io](https://crates.io/)
+and build and install the client.
+
 If you have your path set up correctly you will then
 be able to run the client that you just built:
 
@@ -176,6 +180,10 @@ here's what to do:
 ```
 cargo install hypermud-server
 ```
+
+The above command will download the required source file
+release packages from [crates.io](https://crates.io/)
+and build and install the server.
 
 If you have your path set up correctly you will then
 be able to run the server that you just built:
