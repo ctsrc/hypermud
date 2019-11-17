@@ -1,6 +1,30 @@
-[workspace]
-members = [
-  "common",
-  "client",
-  "server",
-]
+[package]
+name = "hypermud"
+description = "HyperMUD: Mystery. Multi-User Dungeon (multiplayer real-time virtual world)."
+license   = "ISC"
+readme    = "README.md"
+repository  = "https://github.com/ctsrc/hypermud"
+homepage    = "https://www.hypermud-game.com/"
+version = "0.0.2"
+authors = ["Erik Nordstrøm <erik@nordstroem.no>"]
+categories = ["command-line-utilities"]
+keywords  = ["MUD", "role-playing-game", "hack-and-slash", "player-versus-player", "online-chat"]
+edition = "2018"
+
+[[bin]]
+name = "hypermud-server"
+path = "src/server.rs"
+required-features = ["server"]
+
+[[bin]]
+name = "hypermud-client"
+path = "src/client.rs"
+required-features = ["client"]
+
+[features]
+default = ["server", "client"]
+server = []
+client = []
+
+[dependencies]
+clap = { version = "2.33.0", features = ["yaml"] }
