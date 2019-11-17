@@ -120,7 +120,7 @@ the latest stable release of the client from source,
 here's what to do:
 
 ```
-cargo install hypermud-client
+cargo install hypermud --no-default-features --features client
 ```
 
 The above command will download the required source file
@@ -154,7 +154,7 @@ cargo build --bin hypermud-client
 To run the client that you just built:
 
 ```
-cargo run --bin hypermud-client -- -s localhost:3022
+cargo run --bin hypermud-client -- localhost:3022
 ```
 
 ## Want to build the server from source?
@@ -178,7 +178,7 @@ the latest stable release of the server from source,
 here's what to do:
 
 ```
-cargo install hypermud-server
+cargo install hypermud --no-default-features --features server
 ```
 
 The above command will download the required source file
