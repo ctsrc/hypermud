@@ -29,7 +29,6 @@ Use spacebar to interact.
 * [Project status](#project-status)
 * [Features](#features)
 * [Running the client](#running-the-client)
-* [News](#news)
 * [Want to run your own server?](#want-to-run-your-own-server)
 * [Want to build the client from source?](#want-to-build-the-client-from-source)
   - [Building the latest stable release of the client](#building-the-latest-stable-release-of-the-client)
@@ -69,10 +68,6 @@ server you have successfully connected to. If you have never
 connected to any server before then this field will be pre-filled
 with the hostname and port of the official server;
 `mystery.hypermud-game.com:2022`.
-
-## News
-
-* 2019-03-05: Development started.
 
 ## Want to run your own server?
 
